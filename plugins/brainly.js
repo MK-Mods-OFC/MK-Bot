@@ -1,0 +1,17 @@
+let limit = 5
+const brainly = require('brainly-scraper-v2')
+let handler = async function (m, { text }) {
+  if (!text) throw 'Cual es la pregunta?'
+  let res = await brainly(text)
+  let answer = res.data.map((v, i) => `_*Pregunta ${i + 1}*_\n${v.pertanyaan}\n${v.jawaban.map((v,i) => `*RESPONDER ${i + 1}*\n${v.text}`).join('\n')}`).join('\n\n•------------•\n\n')
+  m.reply(answer)
+}
+handler.help = ['brainly <pregunta>']
+handler.tags = ['internet']
+handler.command = /^brainly$/i
+
+handler.register = true
+
+handler.limit = true
+
+module.exports = handler
