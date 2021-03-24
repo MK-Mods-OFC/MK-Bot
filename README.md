@@ -11,6 +11,7 @@ Bot de WhatsApp simple
 ### Para usuarios de Termux
 ```bash
 > pkg update && pkg upgrade
+> termux-setup-storage
 > pkg install git -y
 > pkg install nodejs -y
 > pkg install ffmpeg -y
